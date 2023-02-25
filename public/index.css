@@ -1,0 +1,55 @@
+:root {
+    --accent-color: #666;
+    --background-color: #333;
+}
+
+* {
+    font-weight: normal;
+    font-family: Roboto;
+    color: #fff;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    color: #000;
+}
+
+input:focus {
+    outline: none;
+}
+
+button#clear {
+    background-color: #f66;
+    border: none;
+}
+
+button#send-message {
+    background-color: #66f;
+    border-radius: 10px;
+    outline: none;
+    border: transparent;
+}
+
+p#messages {
+    display: flex;
+}
+
+div#inputs {
+    display: flex;
+    background-color: var(--accent-color);
+    flex-direction: column;
+}
+div#reaction-wrapper {
+    display: none;
+}
+p#messages>div#reaction-wrapper {
+    display: block;
+    position: absolute;
+}
