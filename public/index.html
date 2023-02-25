@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+        * {
+            font-weight: normal;
+            font-family: Roboto;
+        }
+        h1 {
+            text-align: center;
+        }
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+    <h1>You have reached a game made by ethan. if you see this, send him some bean emojis!</h1>
+    <p>Also, to make sure you're not a bot, click the button below to send ethan a message.</p>
+    <input id="message" placeholder="Send a message!">
+    <input id="name" placeholder="What's your name?">
+    <button id="send-message">Send!</button>
+    <p id="messagws"></p>
+    <script>
+        const socket = io("https://pyrite-maple-candle.glitch.me/")
+        const message = document.getElementById("message")
+        const send = document.getElementById("send-message")
+        const name = document.getElementById("name")
+        send.onclick = function() {
+            console.log(message.value)
+            if (message.value!==""&&name.value!=="") {
+                socket.emit("message",message.value)
+                message.value = ""
+            }
+        }
+        socket.on("message",data=>{
+            p.innerHTML += data
+        })
+    </script>
+</body>
+</html>
